@@ -1,0 +1,7 @@
+package com.MicroService.MicroServiceUsers.Domain.Exception;
+
+public class InvalidAgeException extends RuntimeException {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
