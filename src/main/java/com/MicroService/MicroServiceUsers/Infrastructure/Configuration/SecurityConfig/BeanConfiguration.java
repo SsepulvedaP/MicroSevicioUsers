@@ -13,7 +13,6 @@ import com.MicroService.MicroServiceUsers.Infrastructure.Jpa.Repository.IUserRep
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -53,9 +52,8 @@ public class BeanConfiguration {
     }
 
 
-
     @Bean
-    public IUserServicePort userServicePort(@Lazy IUserPersistencePort userPersistencePort, @Lazy IRolPersistencePort rolPersistencePort) {
+    public IUserServicePort userServicePort( IUserPersistencePort userPersistencePort,IRolPersistencePort rolPersistencePort) {
         return new UserUseCase(userPersistencePort, rolPersistencePort);
     }
 
@@ -64,6 +62,8 @@ public class BeanConfiguration {
         return email -> userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND));
     }
+
+
 
 
     @Bean

@@ -2,10 +2,7 @@ package com.MicroService.MicroServiceUsers.Infrastructure.Jpa.Entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -35,6 +32,7 @@ public class UserEntity implements UserDetails {
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
+    @Getter
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -59,9 +57,10 @@ public class UserEntity implements UserDetails {
         return List.of(new SimpleGrantedAuthority(role.getName()));
     }
 
+
     @Override
     public String getUsername() {
-        return getName();
+        return getEmail();
     }
 
     @Override
