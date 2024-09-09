@@ -10,7 +10,6 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface IUserRequestMapper {
-
     @Mapping(target = "name", source = "name")
     @Mapping(target = "lastName", source = "lastName")
     @Mapping(target = "email", source = "email")

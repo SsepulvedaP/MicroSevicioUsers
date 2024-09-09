@@ -15,4 +15,7 @@ public class Constants {
     public static final String PHONE_VALIDATION_REGEX = "^\\+?[0-9]{10,13}$";
     public static final String EMAIL_ALREADY_EXISTS = "El correo electrónico ya está registrado.";
     public static final String DOCUMENT_ALREADY_EXISTS = "El documento de identidad ya está registrado.";
+    public static final String USER_OR_PASSWORD_INCORRECT = "Correo o contraseña incorrectos.";
+    public static final String INVALID_AUTH = "Erro de autenticación.";
+    public static final String INVALID_PERMISSION = "No tienes permisos para realizar esta acción.";
 }

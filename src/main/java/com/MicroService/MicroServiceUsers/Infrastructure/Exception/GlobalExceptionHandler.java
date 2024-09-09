@@ -13,6 +13,7 @@ import java.util.List;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler({
+            InvalidUserException.class,
             DuplicateDocumentException.class,
             RoleNotFoundException.class,
             InvalidAgeException.class,
@@ -57,6 +58,7 @@ public class GlobalExceptionHandler {
         if(ex instanceof DuplicateDocumentException){
             errorMessages.add(ex.getMessage());
         }
+
         // Otros ifs para las demás excepciones...
 
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.CONFLICT.value(), errorMessages);
