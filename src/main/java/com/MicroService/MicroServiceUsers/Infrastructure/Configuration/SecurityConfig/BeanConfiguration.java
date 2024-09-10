@@ -1,6 +1,5 @@
 package com.MicroService.MicroServiceUsers.Infrastructure.Configuration.SecurityConfig;
 
-
 import com.MicroService.MicroServiceUsers.Domain.Api.IUserServicePort;
 import com.MicroService.MicroServiceUsers.Domain.Spi.IRolPersistencePort;
 import com.MicroService.MicroServiceUsers.Domain.Spi.IUserPersistencePort;
@@ -62,7 +61,6 @@ public class BeanConfiguration {
         return email -> userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND));
     }
-
 
 
 
