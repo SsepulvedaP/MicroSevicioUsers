@@ -32,14 +32,30 @@ public class UserUseCase implements IUserServicePort {
     public void createUser(User user) {
         validateUser(user);
         user.setPassword(encryptPassword(user.getPassword()));
-        Optional<Role> optionalRole = rolPersistencePort.getRolByName(user.getRole().getName());
-        if (optionalRole.isPresent()) {
-            user.setRole(optionalRole.get());
-        } else {
-            throw new RoleNotFoundException(ROLE_NOT_FOUND);
-        }
         userPersistencePort.createUser(user);
     }
+
+    @Override
+    public void createAuxBodega(User user) {
+        Optional<Role> role = rolPersistencePort.getRolByName(ROLE_AUX_BODEGA);
+        if (role.isEmpty()) {
+            throw new RoleNotFoundException(ROLE_NOT_FOUND);
+        }
+        user.setRole(role.get());
+        createUser(user);
+    }
+
+    @Override
+    public void createClient(User user) {
+        Optional<Role> role = rolPersistencePort.getRolByName(ROLE_CLIENT);
+        if (role.isEmpty()) {
+            throw new RoleNotFoundException(ROLE_NOT_FOUND);
+        }
+        user.setRole(role.get());
+        createUser(user);
+    }
+
+
 
     @Override
     public boolean validateEmail(String email) {

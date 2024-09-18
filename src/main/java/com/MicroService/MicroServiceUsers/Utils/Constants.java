@@ -18,4 +18,7 @@ public class Constants {
     public static final String USER_OR_PASSWORD_INCORRECT = "Correo o contraseña incorrectos.";
     public static final String INVALID_AUTH = "Erro de autenticación.";
     public static final String INVALID_PERMISSION = "No tienes permisos para realizar esta acción.";
+    public static final String ROLE_ADMIN = "ADMIN";
+    public static final String ROLE_CLIENT = "ROLE_CLIENTE";
+    public static final String ROLE_AUX_BODEGA = "ROLE_AUX_BODEGA";
 }

@@ -17,7 +17,6 @@ public interface IUserRequestMapper {
     @Mapping(target = "phone", source = "phone")
     @Mapping(target = "document", source = "document")
     @Mapping(target = "birthDate", source = "birthDate")
-    @Mapping(target = "role", source = "role")
     User toUser(RegisterRequest registerRequest);
 
     default Role map(String roleName) {

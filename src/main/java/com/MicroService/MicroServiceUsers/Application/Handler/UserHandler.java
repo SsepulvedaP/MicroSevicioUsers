@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.MicroService.MicroServiceUsers.Utils.Constants.ROLE_AUX_BODEGA;
+import static com.MicroService.MicroServiceUsers.Utils.Constants.ROLE_CLIENT;
+
 
 @Service
 @Transactional
@@ -17,8 +20,13 @@ public class UserHandler implements IUserHandler {
     private final IUserServicePort userServicePort;
     private final IUserRequestMapper userRequestMapper;
 
-    public void createUser(RegisterRequest registerRequest) {
+    public void createUserAuxBodega(RegisterRequest registerRequest) {
         User user = userRequestMapper.toUser(registerRequest);
-        userServicePort.createUser(user);
+        userServicePort.createAuxBodega(user);
+    }
+
+    public void createUserClient(RegisterRequest registerRequest) {
+        User user = userRequestMapper.toUser(registerRequest);
+        userServicePort.createClient(user);
     }
 }
