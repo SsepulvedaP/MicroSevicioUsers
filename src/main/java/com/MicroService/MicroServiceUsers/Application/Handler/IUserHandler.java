@@ -4,5 +4,6 @@ import com.MicroService.MicroServiceUsers.Application.Dto.Request.RegisterReques
 
 public interface IUserHandler {
 
-    void createUser(RegisterRequest registerRequest);
+    void createUserAuxBodega(RegisterRequest registerRequest);
+    void createUserClient(RegisterRequest registerRequest);
 }
